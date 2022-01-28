@@ -1,0 +1,8 @@
+// Шапка Общие
+
+.header {
+  border-bottom: $header-border;
+  &__container {
+    @include centeredFlex($just: start);
+  }
+}

@@ -1,0 +1,21 @@
+// Футер Социалки
+
+.footer-social {
+  display: block;
+  margin-right: 93px;
+}
+
+.social-wrapper {
+  display: flex;
+}
+
+.social-label,
+.subscribe-form__label {
+  display: block;
+  font-size: inherit;
+  font-weight: 700;
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: $primary-color;
+  margin-bottom: 20px;
+}

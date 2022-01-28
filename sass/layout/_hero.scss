@@ -1,0 +1,29 @@
+// Секция Герой
+
+.container-fluid {
+  min-height: 600px;
+  max-width: 1600px;
+  margin: 0 auto;
+  background: $hero-bg-gradient, url('../images/hero.jpg'), $hero-bg-color;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.section-hero {
+  text-align: center;
+  padding: 200px 0;
+}
+
+.section-hero__title {
+  width: 630px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: calc(#{$gap} * 2);
+  color: $primary-color;
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.36;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

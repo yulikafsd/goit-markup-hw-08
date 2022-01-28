@@ -1,0 +1,43 @@
+// Фильтра портфолио
+
+.filter-list {
+  display: flex;
+  margin-bottom: 50px;
+  justify-content: center;
+}
+
+.filter-list__item:not(:last-child) {
+  margin-right: 8px;
+}
+
+.filter-list__button {
+  padding: 6px 22px;
+
+  background-color: $primary-bg-color;
+  color: $title-text-color;
+
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.62;
+  letter-spacing: 0.03em;
+  text-align: center;
+
+  border: transparent;
+  border-radius: 4px;
+
+  transition: box-shadow $main-effect, color $main-effect, background-color $main-effect;
+
+  &:hover,
+  &:focus {
+    box-shadow: $filter-button-shadow;
+    color: $primary-color;
+    background-color: $accent-color;
+  }
+
+  &--active {
+    box-shadow: $filter-button-shadow;
+    color: $primary-color;
+    background-color: $accent-color;
+  }
+}

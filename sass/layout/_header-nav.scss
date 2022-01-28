@@ -1,0 +1,88 @@
+// Шапка Навигация
+
+.nav {
+  @include centeredFlex($just: start);
+}
+
+.nav-list {
+  display: flex;
+}
+
+.nav-list__item:not(:last-child) {
+  margin-right: 50px;
+}
+
+.nav-list__link {
+  position: relative;
+
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  color: $title-text-color;
+
+  transition: color $main-effect;
+
+  &--current {
+    color: $accent-color;
+  }
+
+  &--current::after {
+    content: '';
+
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+
+    background: $accent-color;
+    border-radius: 2px;
+    opacity: 1;
+  }
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+// Шапка Навигация-Контакты
+
+.contact-list {
+  display: flex;
+  margin-left: auto;
+}
+
+.contact-list__item:not(:last-child) {
+  margin-right: calc(#{$gap * 2});
+}
+
+.contact-list__link {
+  @include centeredFlex($just: start);
+
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+
+  color: $primary-text-color;
+
+  transition: color $main-effect;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.contact-list__icon {
+  fill: currentColor;
+  margin-right: 10px;
+  justify-content: center;
+}

@@ -1,0 +1,55 @@
+// Модалка
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $backdrop-bg-color;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity $main-effect, visibility $main-effect;
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+  // Или можно так, но это не гибко:
+  // margin-left: calc(-1 * (528px / 2));
+  // margin-top: calc(-1 * (581px / 2));
+  transition: transform $main-effect, opacity $main-effect, visibility $main-effect;
+
+  // min-width: 528px;
+  // min-height: 581px;
+  padding: 40px;
+
+  background-color: $primary-color;
+  box-shadow: $modal-shadow;
+  border-radius: 4px;
+
+  .backdrop.is-hidden & {
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}
+
+// Третий вариант позиционирования
+// работает с relative-absolute связками с 1 ребенком
+// .backdrop {
+//   position: fixed; - не статик, у ребенка абсолют
+//   @include centeredFlex();
+// }

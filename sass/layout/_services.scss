@@ -1,0 +1,36 @@
+// Секция Услуги
+
+.section-services {
+  padding-top: 0;
+}
+
+.services-list {
+  display: flex;
+}
+
+.services-list__item {
+  position: relative;
+  display: block;
+
+  &:not(:last-child) {
+    margin-right: calc(2 * #{$gap});
+  }
+}
+
+.services-list__subtitle {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  padding: 27px 0;
+
+  font-size: inherit;
+  font-weight: 700;
+  line-height: 1.14;
+  text-transform: uppercase;
+  text-align: center;
+
+  color: $primary-color;
+  background-color: $services-text-bg-color;
+}

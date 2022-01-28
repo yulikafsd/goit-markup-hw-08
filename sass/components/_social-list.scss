@@ -1,0 +1,74 @@
+// Social networks block
+
+.social-list {
+  display: flex;
+  justify-content: center;
+}
+
+.social-list__item:not(:last-child) {
+  margin-right: 10px;
+}
+
+// Второй вариант:
+// .social-list__item + .social-list__item {
+//   margin-left: 10px;
+//  }
+
+.social-list__link {
+  @include centeredFlex();
+
+  width: 44px;
+  height: 44px;
+
+  background-color: $footer-icon-bg-color;
+  border-radius: 50%;
+
+  color: $icon-fill-color;
+  transition: background-color $main-effect, color $main-effect;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $primary-color;
+  }
+}
+
+.social-list__link--footer {
+  color: $primary-color;
+  transition: background-color $main-effect;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+  }
+}
+
+.social-list__icon {
+  fill: currentColor;
+}
+
+// Второй вариант
+
+// .social-list__link {
+//   @include centeredFlex();
+//   width: 44px;
+//   height: 44px;
+
+//   border-radius: 50%;
+//   transition: background-color $main-effect;
+
+// &:hover,
+// &:focus {
+//   background-color: $accent-color;
+// }
+// }
+
+// .social-list__icon {
+//   fill: $icon-fill-color;
+//   transition: fill $main-effect;
+
+// .social-list__link:hover &,
+// .social-list__link:focus & {
+//   fill: $primary-color;
+// }
+// }

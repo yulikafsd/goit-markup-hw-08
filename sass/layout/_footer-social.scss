@@ -1,21 +1,26 @@
 // Футер Социалки
 
 .footer-social {
-  display: block;
-  margin-right: 93px;
+  @include minMedia($desk) {
+    display: block;
+    margin-right: 93px;
+  }
 }
 
 .social-wrapper {
-  display: flex;
+  @include minMedia($desk) {
+    display: flex;
+  }
 }
 
 .social-label,
 .subscribe-form__label {
-  display: block;
-  font-size: inherit;
-  font-weight: 700;
-  line-height: 1.14;
-  text-transform: uppercase;
+  @include minMedia($desk) {
+    display: block;
+    margin-bottom: 20px;
+  }
+  @include textFont($ff: inherit, $fw: 700, $fs: null, $lh: 1.14, $ls: null) text-transform:
+    uppercase;
+
   color: $primary-color;
-  margin-bottom: 20px;
 }

@@ -1,9 +1,11 @@
 // Секция Герой
 
 .container-fluid {
-  min-height: 600px;
-  max-width: 1600px;
-  margin: 0 auto;
+  @include minMedia($desk) {
+    min-height: 600px;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
   background: $hero-bg-gradient, url('../images/hero.jpg'), $hero-bg-color;
   background-repeat: no-repeat;
   background-position: center;
@@ -12,18 +14,22 @@
 
 .section-hero {
   text-align: center;
-  padding: 200px 0;
+  @include minMedia($desk) {
+    padding: 200px 0;
+  }
 }
 
 .section-hero__title {
-  width: 630px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: calc(#{$gap} * 2);
+  @include minMedia($desk) {
+    width: 630px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: calc(#{$gap} * 2);
+  }
+
   color: $primary-color;
-  font-weight: 900;
-  font-size: 44px;
-  line-height: 1.36;
-  letter-spacing: 0.06em;
+
+  @include textFont($ff: null, $fw: 900, $fs: 44px, $lh: 1.36, $ls: 0.06em);
+
   text-transform: uppercase;
 }

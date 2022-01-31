@@ -1,45 +1,48 @@
 // Футер Подписка
 
 .subscribe-form__input {
-  display: inline-block;
-  width: 358px;
-  height: 50px;
-  padding: $gap;
-  margin-right: 12px;
-
   color: $primary-color;
   background-color: transparent;
   border: $subscribe-input-border;
   box-shadow: $subscribe-input-shadow;
   border-radius: 4px;
 
+  @include minMedia($desk) {
+    display: inline-block;
+    width: 358px;
+    height: 50px;
+    padding: $gap;
+    margin-right: 12px;
+  }
+
   &::placeholder {
-    font-weight: inherit;
-    font-size: 16px;
-    line-height: 1.25;
-    letter-spacing: 0.03em;
+    @include textFont($ff: null, $fw: inherit, $fs: 16px, $lh: 1.25, $ls: null);
+
     color: $subscribe-placeholder-color;
   }
 }
 
 .subscribe-form__field {
-  @include centeredFlex($just: space-between);
+  @include minMedia($desk) {
+    @include centeredFlex($just: space-between);
+  }
 }
 
 .subscribe-form__button {
-  @include centeredFlex();
-  padding: 0;
+  @include minMedia($desk) {
+    @include centeredFlex();
+    padding: 0;
+  }
 
   fill: $primary-color;
 
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.87;
-  letter-spacing: 0.06em;
+  @include textFont($ff: null, $fw: 700, $fs: 16px, $lh: 1.87, $ls: 0.06em);
 }
 
 .button__text {
-  margin-right: 10px;
+  @include minMedia($desk) {
+    margin-right: 10px;
+  }
 }
 
 .subscribe-form__button:hover .button__icon {

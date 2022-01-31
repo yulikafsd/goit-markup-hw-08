@@ -1,9 +1,10 @@
 @import './utils/vars';
-@import './base/reset';
-@import './base/common';
+@import './utils/breakpoints';
 @import './utils/mixins';
 @import './utils/placeholders';
 @import './utils/animations';
+@import './base/reset';
+@import './base/common';
 @import './components/logo';
 @import './components/button';
 @import './components/social-list';

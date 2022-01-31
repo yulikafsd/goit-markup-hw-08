@@ -1,30 +1,28 @@
 // Кнопка
 
 .button {
-  display: block;
-  width: 200px;
-  height: 50px;
-  padding: 10px 0;
-  margin-right: auto;
-  margin-left: auto;
-
   color: $primary-color;
   background-color: $accent-color;
   border: transparent;
   border-radius: 4px;
   box-shadow: $button-shadow;
 
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.87;
-  letter-spacing: 0.06em;
+  @include textFont($ff: inherit, $fw: 700, $fs: 16px, $lh: 1.87, $ls: 0.06em);
   text-align: center;
 
   transition: background-color $main-effect;
 
-&:hover,
-&:focus {
-  background-color: $button-hover-color;
-}
+  @include minMedia($desk) {
+    display: block;
+    width: 200px;
+    height: 50px;
+    padding: 10px 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $button-hover-color;
+  }
 }

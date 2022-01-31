@@ -1,21 +1,29 @@
 // Портфолио
 
 .portfolio-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin: calc(-1 * #{$gap});
+  @include minMedia($desk) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(-1 * #{$gap});
+  }
 }
 
 .portfolio-list__item {
-  margin: $gap;
-  width: calc(100% / 3 - (2 * #{$gap}));
+  @include minMedia($desk) {
+    margin: $gap;
+    width: calc(100% / 3 - (2 * #{$gap}));
+  }
 }
 
 .port-img {
-  width: 100%;
+  @include minMedia($desk) {
+    width: 100%;
+  }
 }
 .portfolio-list__link {
-  display: block;
+  @include minMedia($desk) {
+    display: block;
+  }
   transition: box-shadow $main-effect;
 
   &:hover,
@@ -26,14 +34,14 @@
 
 .portfolio-list__subtitle {
   color: $title-text-color;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 2;
-  letter-spacing: 0.06em;
+
+  @include textFont($ff: null, $fw: 700, $fs: 18px, $lh: 2, $ls: 0.06em);
 }
 
 .portfolio-list__card {
-  padding: 20px 24px;
+  @include minMedia($desk) {
+    padding: 20px 24px;
+  }
   border: $portfolio-card-border;
   border-top: 0;
 }
@@ -52,19 +60,26 @@
 .portfolio-list__overlay {
   position: absolute;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
+  padding: 63px 24px;
+
   font-size: 18px;
   line-height: 1.56;
+
   color: $primary-color;
   background-color: $overlay-bg-color;
-  padding: 63px 24px;
+
   overflow: hidden;
   // если будет больше текста, ставим overflow:auto - появятся скроллы
+
+  transform: translateY(100%);
+
   transition: transform $main-effect;
 
   .portfolio-list__item:hover &,
   .portfolio-list__item:focus & {
-    transform: translateY(-100%);
+    transform: translateY(0);
   }
 }

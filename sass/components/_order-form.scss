@@ -1,64 +1,67 @@
 // Форма
 
 .order-form {
-  width: 448px;
+     @include minMedia ($desk) {
+    width: 448px;
+  }
 }
 
 .order-form__title {
+  @include textFont($ff: null, $fw: 700, $fs: 20px, $lh: 1.15, $ls: null) color: $title-text-color;
+
+    @include minMedia ($desk) {
   display: block;
   margin-bottom: 12px;
-
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.15;
-  text-align: center;
-  color: $title-text-color;
+   }
 }
 
 .order-form__label {
   position: relative;
 
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
+      @include minMedia ($desk) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+}
 
-  &--textarea {
+.order-form__label--textarea {
+  @include minMedia ($desk) {
     margin-bottom: 20px;
   }
+}
 
-  &--agreement {
+.order-form__label--agreement {
+  @include textFont($ff: null, $fw: null, $fs: 14px, $lh: null, $ls: null);
+      @include minMedia ($desk) {
     flex-direction: row;
     align-items: center;
     justify-content: center;
     margin-bottom: calc(2 * #{$gap});
-
-    font-size: 14px;
-    line-height: 1.7;
-    letter-spacing: 0.03em;
   }
 }
 
 .order-form__label-text {
-  margin-bottom: 4px;
+  @include textFont($ff: null, $fw: null, $fs: 12px, $lh: 1.17, $ls: 0.01em);
 
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.01em;
+      @include minMedia ($desk) {
+  margin-bottom: 4px;
+    }
 }
 
 .order-form__input {
-  width: 100%;
-  padding: 11px 12px 11px 42px;
-
   border: $order-input-border;
   border-radius: 4px;
 
   transition: border-color $main-effect;
 
+        @include minMedia ($desk) {
+  width: 100%;
+  padding: 11px 12px 11px 42px;
+      }
+
   &::placeholder {
-    font-size: 14px;
-    line-height: 1.16;
-    letter-spacing: 0.01em;
+    @include orderFont;
     color: $order-placeholder-color;
   }
 
@@ -69,25 +72,23 @@
 }
 
 .order-form__textarea {
-  width: 100%;
-  height: calc(8 * #{$gap});
-  padding: 12px 16px;
-
   resize: none;
 
   border: $order-input-border;
   border-radius: 4px;
 
-  font-size: 14px;
-  line-height: 1.16;
-  letter-spacing: 0.01em;
+  @include orderFont;
+
+  @include minMedia ($desk) {
+  width: 100%;
+  height: calc(8 * #{$gap});
+  padding: 12px 16px;
+  }
 
   transition: border-color $main-effect;
 
   &::placeholder {
-    font-size: 14px;
-    line-height: 1.16;
-    letter-spacing: 0.01em;
+    @include orderFont;
     color: $order-placeholder-color;
   }
 
@@ -98,11 +99,14 @@
 }
 
 .order-form__icon {
+  fill: $order-icons-fill;
+  transition: fill $main-effect;
+
+    @include minMedia ($desk) {
   position: absolute;
   bottom: 11px;
   left: 12px;
-  fill: $order-icons-fill;
-  transition: fill $main-effect;
+  }
 
   .order-form__label:focus-within > & {
     fill: $accent-color;
@@ -115,14 +119,17 @@
 }
 
 .order-form__icon-check {
-  margin-right: 7px;
   cursor: pointer;
 
   border: $icon-check-border;
   border-radius: 2px;
 
-  fill: none;
+  fill: transparent;
   transition: border-color $main-effect, background-color $main-effect, fill $main-effect;
+
+   @include minMedia ($desk) {
+  margin-right: 7px;
+  }
 
   .order-form__label--agreement:focus-within > & {
     border-color: $accent-color;

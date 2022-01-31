@@ -1,11 +1,15 @@
 // Футер общие
 
 .footer {
-  padding: 60px 0;
   background-color: $footer-bg-color;
+  @include minMedia($desk) {
+    padding: 60px 0;
+  }
 }
 
 .footer__container {
+  @include minMedia($desk) {
     display: flex;
     align-items: baseline;
   }
+}

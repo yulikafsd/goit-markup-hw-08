@@ -1,22 +1,29 @@
 // Секция Особенности
 
 .features-list {
-  display: flex;
-  margin: -15px;
+  @include minMedia($desk) {
+    display: flex;
+    margin: -15px;
+  }
 }
 
 .features-list__item {
-  margin: 15px;
-  width: calc((100% - (8 * #{$gap})) / 4);
+  @include minMedia($desk) {
+    margin: 15px;
+    width: calc((100% - (8 * #{$gap})) / 4);
+  }
 }
 
 .features-list__icons {
-  @include centeredFlex();
-  width: 270px;
-  height: 120px;
   background: $primary-bg-color;
   border-radius: 4px;
-  margin-bottom: calc(2 * #{$gap});
+
+  @include minMedia($desk) {
+    @include centeredFlex;
+    width: 270px;
+    height: 120px;
+    margin-bottom: calc(2 * #{$gap});
+  }
 }
 
 // Второй вариант
@@ -35,10 +42,12 @@
 // }
 
 .features-list__subtitle {
-  margin-bottom: 10px;
   color: $title-text-color;
-  font-weight: 700;
-  font-size: inherit;
-  line-height: 1.14;
-  text-transform: uppercase;
+
+  @include textFont($ff: null, $fw: 700, $fs: inherit, $lh: 1.14, $ls: null) text-transform:
+    uppercase;
+
+  @include minMedia($desk) {
+    margin-bottom: 10px;
+  }
 }

@@ -1,19 +1,26 @@
 // Секция Услуги
 
 .section-services {
-  padding-top: 0;
+  @include minMedia($desk) {
+    padding-top: 0;
+  }
 }
 
 .services-list {
-  display: flex;
+  @include minMedia($desk) {
+    display: flex;
+  }
 }
 
 .services-list__item {
   position: relative;
-  display: block;
 
-  &:not(:last-child) {
-    margin-right: calc(2 * #{$gap});
+  @include minMedia($desk) {
+    display: block;
+
+    &:not(:last-child) {
+      margin-right: calc(2 * #{$gap});
+    }
   }
 }
 
@@ -25,9 +32,8 @@
   width: 100%;
   padding: 27px 0;
 
-  font-size: inherit;
-  font-weight: 700;
-  line-height: 1.14;
+  @include textFont($ff: inherit, $fw: 700, $fs: null, $lh: 1.14, $ls: null);
+
   text-transform: uppercase;
   text-align: center;
 

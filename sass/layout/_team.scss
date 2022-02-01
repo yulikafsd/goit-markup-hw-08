@@ -5,32 +5,61 @@
 }
 
 .team-list {
-  @include minMedia($desk) {
+  margin: calc(-1 * #{$gap});
+
+  @include minMedia($tab) {
     display: flex;
-    margin: calc(-1 * #{$gap});
+    flex-wrap: wrap;
+  }
+  @include minMedia($desk) {
+    flex-wrap: nowrap;
   }
 }
 
 .team-list__item {
-  @include minMedia($desk) {
-    margin: $gap;
-    width: calc((100% - (8 * #{$gap})) / 4);
+  margin: $gap;
+
+  @include maxMedia($preTab) {
+    &:not(:last-child) {
+      margin-bottom: calc(2 * #{$gap});
+    }
   }
+
+  @include minMedia($tab) {
+    width: calc(100% / 2 - (2 * #{$gap}));
+  }
+
+  @include minMedia($desk) {
+    width: calc(100% / 4 - (2 * #{$gap}));
+  }
+
   background-color: $primary-color;
   box-shadow: $team-shadow;
   border-radius: 0 0 4px 4px;
 }
 
+.team-list__img {
+  width: 450px;
+
+  @include minMedia($tab) {
+    width: 354px;
+  }
+
+  @include minMedia($desk) {
+    width: 270px;
+  }
+}
+
 .team-list__card {
+  padding: 30px 0 24px 0;
+
   @include minMedia($desk) {
     padding: 30px 0px;
   }
 }
 
 .team-list__subtitle {
-  @include minMedia($desk) {
-    margin-bottom: 10px;
-  }
+  margin-bottom: 10px;
 
   color: $title-text-color;
 
@@ -40,11 +69,9 @@
 }
 
 .team-list__text {
+  margin-bottom: 16px;
+
   @include textFont($ff: null, $fw: null, $fs: 16px, $lh: 1.19, $ls: null);
 
   text-align: center;
-
-  @include minMedia($desk) {
-    margin-bottom: 16px;
-  }
 }

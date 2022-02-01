@@ -1,36 +1,47 @@
 // Секция Клиенты
 
-.section.clients {
+.section-clients {
   background-color: $primary-color;
 }
 
 .clients-list {
+  @include centeredFlex;
+  flex-wrap: wrap;
+  margin: calc(-1 * #{$gap});
+
   @include minMedia($desk) {
-    display: flex;
-    margin: calc(-1 * #{$gap});
+    flex-wrap: nowrap;
   }
 }
 
 .clients-list__item {
+  margin: $gap;
+  width: calc(100% / 2 - (2 * #{$gap}));
+
+  @include rangeMedia($tab, $preDesk) {
+    width: calc(100% / 3 - (2 * #{$gap}));
+  }
   @include minMedia($desk) {
-    margin: 15px;
-    width: calc(100% - (12 * #{$gap}) / 6);
+    width: calc(100% / 6 - (2 * #{$gap}));
   }
 }
 
 .clients-list__link {
+  @include centeredFlex;
+  height: 92px;
+
+  @include minMedia($tab) {
+  }
+  @include minMedia($desk) {
+    flex-wrap: nowrap;
+  }
+
   border: $clients-border;
   border-radius: 4px;
   color: $icon-fill-color;
   transform: scale(1);
 
   transition: border-color $main-effect, color $main-effect, transform $main-effect;
-
-  @include minMedia($desk) {
-    @include centeredFlex();
-    width: 170px;
-    height: 92px;
-  }
 
   &:hover,
   &:focus {

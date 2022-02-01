@@ -1,26 +1,23 @@
 // Секция Услуги
 
 .section-services {
-  @include minMedia($desk) {
-    padding-top: 0;
+  padding-top: 0;
+
+  @include maxMedia($preDesk) {
+    display: none;
   }
 }
 
 .services-list {
-  @include minMedia($desk) {
-    display: flex;
-  }
+  display: flex;
 }
 
 .services-list__item {
   position: relative;
+  display: block;
 
-  @include minMedia($desk) {
-    display: block;
-
-    &:not(:last-child) {
-      margin-right: calc(2 * #{$gap});
-    }
+  &:not(:last-child) {
+    margin-right: calc(2 * #{$gap});
   }
 }
 

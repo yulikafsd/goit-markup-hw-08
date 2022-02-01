@@ -1,29 +1,58 @@
 // Секция Особенности
 
 .features-list {
-  @include minMedia($desk) {
+  margin: calc(-1 * #{$gap});
+
+  @include minMedia($tab) {
     display: flex;
-    margin: -15px;
+    flex-wrap: wrap;
+  }
+
+  @include minMedia($desk) {
+    flex-wrap: nowrap;
   }
 }
 
 .features-list__item {
+  margin: $gap;
+
+  @include maxMedia($preTab) {
+    &:not(:last-child) {
+      margin-bottom: calc(2 * #{$gap});
+    }
+  }
+
+  @include minMedia($tab) {
+    width: calc(100% / 2 - (2 * #{$gap}));
+  }
+
   @include minMedia($desk) {
-    margin: 15px;
-    width: calc((100% - (8 * #{$gap})) / 4);
+    width: calc(100% / 4 - (2 * #{$gap}));
   }
 }
 
-.features-list__icons {
-  background: $primary-bg-color;
-  border-radius: 4px;
+.features-list__icon {
+  width: 100%;
+  height: 120px;
+  margin-bottom: calc(2 * #{$gap});
+
+  @include centeredFlex;
+
+  @include maxMedia($preMob) {
+    max-width: 450px;
+  }
+
+  @include minMedia($mob) {
+    max-width: 450px;
+  }
 
   @include minMedia($desk) {
-    @include centeredFlex;
-    width: 270px;
-    height: 120px;
+    max-width: 270px;
     margin-bottom: calc(2 * #{$gap});
   }
+
+  background: $primary-bg-color;
+  border-radius: 4px;
 }
 
 // Второй вариант
@@ -42,12 +71,13 @@
 // }
 
 .features-list__subtitle {
+  margin-bottom: 10px;
   color: $title-text-color;
 
-  @include textFont($ff: null, $fw: 700, $fs: inherit, $lh: 1.14, $ls: null) text-transform:
-    uppercase;
+  @include textFont($ff: null, $fw: 700, $fs: inherit, $lh: 1.14, $ls: null);
+  text-transform: uppercase;
 
-  @include minMedia($desk) {
-    margin-bottom: 10px;
+  @include maxMedia($preTab) {
+    text-align: center;
   }
 }

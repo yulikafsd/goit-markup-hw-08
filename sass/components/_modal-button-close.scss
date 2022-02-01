@@ -1,6 +1,15 @@
 // Кнопка закрытия модалки
 
 .button-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  @include centeredFlex;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+
   color: $button-close-color;
   background-color: $primary-color;
   border: $button-close-border;
@@ -13,17 +22,6 @@
     color: $accent-color;
     transform: rotate(180deg);
     border-color: $accent-color;
-  }
-
-  @include minMedia($desk) {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-
-    @include centeredFlex;
-    width: 30px;
-    height: 30px;
-    padding: 0;
   }
 }
 

@@ -11,22 +11,28 @@
 // Лого шапки
 
 .nav__logo {
-  color: $title-text-color;
+  padding: 16px 0;
+  // вместо правого маржина - вo флексе space-between;
+
+  @include minMedia($tab) {
+    padding: 26px 0;
+    margin-right: 88px;
+  }
 
   @include minMedia($desk) {
     padding-top: 24px;
     padding-bottom: 25px;
     margin-right: 93px;
   }
+
+  color: $title-text-color;
 }
 
 // Лого футера
 
 .footer-address__logo {
-  color: $primary-color;
+  display: inline-block;
+  padding-bottom: 20px;
 
-  @include minMedia($desk) {
-    display: inline-block;
-    padding-bottom: 20px;
-  }
+  color: $primary-color;
 }

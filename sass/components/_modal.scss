@@ -1,19 +1,22 @@
 // Модалка
 
 .backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+
+  @include maxMedia($preMob) {
+    padding: 93px 15px;
+  }
+
   background-color: $backdrop-bg-color;
   opacity: 1;
   visibility: visible;
 
   transition: opacity $main-effect, visibility $main-effect;
-
-  @include minMedia($desk) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-  }
 }
 
 .is-hidden {
@@ -23,9 +26,29 @@
 }
 
 .modal {
+  width: 100%;
+  padding: 40px;
+  position: relative;
+
+  @include maxMedia($preMob) {
+    max-width: 450px;
+  }
+
+  @include minMedia($mob) {
+    width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  @include minMedia($desk) {
+    width: 528px;
+  }
+
   opacity: 1;
   visibility: visible;
-  transform: translate(-50%, -50%) scale(1);
+
   // Или можно так, но это не гибко:
   // margin-left: calc(-1 * (528px / 2));
   // margin-top: calc(-1 * (581px / 2));
@@ -35,22 +58,17 @@
   box-shadow: $modal-shadow;
   border-radius: 4px;
 
-  @include minMedia($desk) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    padding: 40px;
-  }
-
   .backdrop.is-hidden & {
     opacity: 0;
     visibility: hidden;
-    transform: translate(-50%, -50%) scale(0.5);
+    pointer-events: none;
+    transform: scale(0.5);
 
-    @include minMedia($desk) {
+    @include minMedia($mob) {
+      position: absolute;
       top: 50%;
       left: 50%;
+      transform: translate(-50%, -50%) scale(0.5);
     }
   }
 }

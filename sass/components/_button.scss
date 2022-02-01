@@ -1,6 +1,13 @@
 // Кнопка
 
 .button {
+  display: block;
+  width: 200px;
+  height: 50px;
+  padding: 10px 0;
+  margin-right: auto;
+  margin-left: auto;
+
   color: $primary-color;
   background-color: $accent-color;
   border: transparent;
@@ -12,17 +19,14 @@
 
   transition: background-color $main-effect;
 
-  @include minMedia($desk) {
-    display: block;
-    width: 200px;
-    height: 50px;
-    padding: 10px 0;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
   &:hover,
   &:focus {
     background-color: $button-hover-color;
   }
 }
+
+// .order-form__button {
+// }
+
+// .section-hero__button {
+// }

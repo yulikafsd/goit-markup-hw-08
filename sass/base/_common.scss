@@ -5,27 +5,37 @@ body {
 }
 
 .container {
+  max-width: 480px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include minMedia($tab) {
+    width: 768px;
+  }
+
   @include minMedia($desk) {
     width: 1200px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
 .section {
+  padding: 60px 0;
+
   @include minMedia($desk) {
     padding: 94px 0;
   }
 }
 
 .section__title {
-  color: $title-text-color;
-  @include textFont($ff: null, $fw: 700, $fs: 36px, $lh: 1.17, $ls: null);
-  text-align: center;
+  margin-bottom: 30px;
 
   @include minMedia($desk) {
     margin-bottom: 50px;
   }
+
+  color: $title-text-color;
+  @include textFont($ff: null, $fw: 700, $fs: 36px, $lh: 1.17, $ls: null);
+  text-align: center;
 }

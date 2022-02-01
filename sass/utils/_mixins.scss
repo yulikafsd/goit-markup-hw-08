@@ -20,14 +20,20 @@
   letter-spacing: $ls;
 }
 
-@mixin minMedia($startbreakpoint) {
-  @media screen and (min-width: $startbreakpoint) {
+@mixin minMedia($startBreakpoint) {
+  @media screen and (min-width: $startBreakpoint) {
     @content;
   }
 }
 
 @mixin maxMedia($finishBreakpoint) {
   @media screen and (max-width: $finishBreakpoint) {
+    @content;
+  }
+}
+
+@mixin rangeMedia($startBreakpoint, $finishBreakpoint) {
+  @media screen and (min-width: $startBreakpoint) and (max-width: $finishBreakpoint) {
     @content;
   }
 }

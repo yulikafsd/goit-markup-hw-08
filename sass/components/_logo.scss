@@ -11,6 +11,7 @@
 // Лого шапки
 
 .nav__logo {
+  display: block;
   padding: 16px 0;
   // вместо правого маржина - вo флексе space-between;
 
@@ -32,7 +33,6 @@
 
 .footer-address__logo {
   display: inline-block;
-  padding-bottom: 20px;
-
+  margin-bottom: 20px;
   color: $primary-color;
 }

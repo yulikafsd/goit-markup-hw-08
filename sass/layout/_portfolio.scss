@@ -1,7 +1,7 @@
 // Портфолио
 
 .portfolio-list {
-  @include minMedia($desk) {
+  @include minMedia($tab) {
     display: flex;
     flex-wrap: wrap;
     margin: calc(-1 * #{$gap});
@@ -9,21 +9,24 @@
 }
 
 .portfolio-list__item {
-  @include minMedia($desk) {
+  margin-bottom: 2 * $gap;
+
+  @include minMedia($tab) {
     margin: $gap;
+    width: calc(100% / 2 - (2 * #{$gap}));
+  }
+
+  @include minMedia($desk) {
     width: calc(100% / 3 - (2 * #{$gap}));
   }
 }
 
 .port-img {
-  @include minMedia($desk) {
-    width: 100%;
-  }
+  width: 100%;
 }
+
 .portfolio-list__link {
-  @include minMedia($desk) {
-    display: block;
-  }
+  display: block;
   transition: box-shadow $main-effect;
 
   &:hover,
@@ -39,9 +42,8 @@
 }
 
 .portfolio-list__card {
-  @include minMedia($desk) {
-    padding: 20px 24px;
-  }
+  padding: 20px 24px;
+
   border: $portfolio-card-border;
   border-top: 0;
 }
@@ -63,7 +65,10 @@
   top: 0;
   width: 100%;
   height: 100%;
-  padding: 63px 24px;
+
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
 
   font-size: 18px;
   line-height: 1.56;
@@ -74,7 +79,7 @@
   overflow: hidden;
   // если будет больше текста, ставим overflow:auto - появятся скроллы
 
-  transform: translateY(100%);
+  transform: translateY(101%);
 
   transition: transform $main-effect;
 

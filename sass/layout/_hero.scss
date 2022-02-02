@@ -1,11 +1,28 @@
 // Секция Герой
 
 .container-fluid {
+  min-height: 400px;
+  min-width: 320px;
+  margin: 0 auto;
+
+  @include maxMedia($preMob) {
+    max-width: 480px;
+  }
+
+  @include minMedia($mob) {
+    width: 480px;
+  }
+
+  @include minMedia($tab) {
+    width: 768px;
+  }
+
   @include minMedia($desk) {
     min-height: 600px;
+    width: 100%;
     max-width: 1600px;
-    margin: 0 auto;
   }
+
   background: $hero-bg-gradient, url('../images/hero.jpg'), $hero-bg-color;
   background-repeat: no-repeat;
   background-position: center;
@@ -14,22 +31,40 @@
 
 .section-hero {
   text-align: center;
+  padding: 118px 60px;
+
+  @include maxMedia($preMob) {
+    // вспомогательный паддинг, чтобы верхнее слово не уезжало вправо
+    padding-right: 50px;
+  }
+
+  @include minMedia($tab) {
+    padding-left: 204px;
+    padding-right: 204px;
+  }
   @include minMedia($desk) {
     padding: 200px 0;
   }
 }
 
 .section-hero__title {
-  @include minMedia($desk) {
-    width: 630px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: calc(#{$gap} * 2);
+  width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: calc(#{$gap} * 2);
+
+  @include textFont($ff: null, $fw: 900, $fs: 26px, $lh: 1.62, $ls: 0.06em);
+  color: $primary-color;
+  text-transform: uppercase;
+  text-align: center;
+
+  @include maxMedia($preMob) {
+    width: 100%;
   }
 
-  color: $primary-color;
-
-  @include textFont($ff: null, $fw: 900, $fs: 44px, $lh: 1.36, $ls: 0.06em);
-
-  text-transform: uppercase;
+  @include minMedia($desk) {
+    width: 630px;
+    font-size: 44px;
+    line-height: 1.36;
+  }
 }

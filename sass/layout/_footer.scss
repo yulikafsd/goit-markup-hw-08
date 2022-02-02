@@ -1,15 +1,27 @@
 // Футер общие
 
 .footer {
+  min-width: 320px;
   background-color: $footer-bg-color;
-  @include minMedia($desk) {
-    padding: 60px 0;
-  }
+  padding: 60px 0;
 }
 
 .footer__container {
+  text-align: center;
+
+  @include minMedia($tab) {
+    @include centeredFlex($just: space-around);
+    flex-wrap: wrap;
+  }
+
   @include minMedia($desk) {
-    display: flex;
+    text-align: left;
     align-items: baseline;
+  }
+
+  & > *:not(:last-child) {
+    @include rangeMedia($tab, $preDesk) {
+      width: calc(100% / 2);
+    }
   }
 }

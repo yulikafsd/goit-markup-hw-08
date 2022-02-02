@@ -1,20 +1,30 @@
 // Фильтра портфолио
 
 .filter-list {
-  @include minMedia($desk) {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+
+  @include minMedia($tab) {
+    margin-bottom: 30px;
   }
+  @include minMedia($desk) {
+    margin-bottom: 50px;
+    justify-content: center;
+  }
+}
+
+.filter-list__item:not(:nth-last-child(-n + 2)) {
+  margin-bottom: 15px;
 }
 
 .filter-list__item:not(:last-child) {
-  @include minMedia($desk) {
-    margin-right: 8px;
-  }
+  margin-right: 8px;
 }
 
 .filter-list__button {
+  padding: 6px 22px;
+
   background-color: $primary-bg-color;
   color: $title-text-color;
 
@@ -25,10 +35,6 @@
   border-radius: 4px;
 
   transition: box-shadow $main-effect, color $main-effect, background-color $main-effect;
-
-  @include minMedia($desk) {
-    padding: 6px 22px;
-  }
 
   &:hover,
   &:focus {

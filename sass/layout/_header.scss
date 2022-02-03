@@ -3,8 +3,8 @@
 .header {
   border-bottom: $header-border;
   &__container {
-    @include minMedia($desk) {
-      @include centeredFlex($just: start);
+    @include minMedia($tab) {
+      @include centeredFlex($just: space);
     }
   }
 }

@@ -5,6 +5,7 @@
 
   @include minMedia($desk) {
     margin-right: 85px;
+    margin-bottom: 0;
   }
 }
 // min-width: 231px;

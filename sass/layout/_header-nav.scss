@@ -1,37 +1,38 @@
 // Шапка Навигация
 
 .nav {
-  @include minMedia($desk) {
-    @include centeredFlex($just: start);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include minMedia($tab) {
+    justify-content: start;
   }
 }
 
 .nav-list {
-  @include minMedia($desk) {
-    display: flex;
+  display: flex;
+
+  @include maxMedia($preTab) {
+    display: none;
   }
 }
 
 .nav-list__item:not(:last-child) {
-  @include minMedia($desk) {
-    margin-right: 50px;
-  }
+  margin-right: 50px;
 }
 
 .nav-list__link {
   position: relative;
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
 
   @include textFont($ff: null, $fw: 500, $fs: null, $lh: 1.14, $ls: 0.02em);
 
   color: $title-text-color;
 
   transition: color $main-effect;
-
-  @include minMedia($desk) {
-    display: block;
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
 
   &--current {
     color: $accent-color;
@@ -60,22 +61,35 @@
 // Шапка Навигация-Контакты
 
 .contact-list {
+  margin-left: auto;
+
+  @include maxMedia($preTab) {
+    display: none;
+  }
+
   @include minMedia($desk) {
     display: flex;
-    margin-left: auto;
   }
 }
 
-.contact-list__item:not(:last-child) {
-  @include minMedia($desk) {
-    margin-right: calc(#{$gap * 2});
+.contact-list__item {
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) {
+    @include maxMedia($preDesk) {
+      margin-bottom: 10px;
+    }
+    @include minMedia($desk) {
+      margin-right: calc(#{$gap} * 2);
+    }
   }
 }
 
 .contact-list__link {
-  @include minMedia($desk) {
-    @include centeredFlex($just: start);
+  @include centeredFlex($just: start);
 
+  @include minMedia($desk) {
     padding-top: 32px;
     padding-bottom: 32px;
   }
@@ -94,9 +108,13 @@
 
 .contact-list__icon {
   fill: currentColor;
+  justify-content: center;
+
+  @include minMedia($tab) {
+    margin-right: 8px;
+  }
 
   @include minMedia($desk) {
     margin-right: 10px;
-    justify-content: center;
   }
 }

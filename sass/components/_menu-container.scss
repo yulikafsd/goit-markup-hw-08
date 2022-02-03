@@ -1,0 +1,131 @@
+.mob-menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  overflow-y: scroll;
+
+  background-color: transparent;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-100%);
+
+  transition: transform ($main-effect), background-color ($main-effect), opacity ($main-effect),
+    visibility ($main-effect);
+
+  @include maxMedia($preMob) {
+    width: 100%;
+    max-height: 100%;
+  }
+
+  @include minMedia($tab) {
+    display: none;
+  }
+
+  &.is-open {
+    background-color: $primary-color;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  & .container {
+    position: relative;
+    padding: 48px 40px;
+  }
+}
+
+.menu-toggle-wrap {
+  @include centeredFlex($just: space-between);
+}
+
+.menu-toggle-open,
+.menu-toggle-close {
+  margin: 0;
+  padding: 0;
+  border: transparent;
+  background-color: transparent;
+
+  fill: $button-close-color;
+
+  transition: transform $main-effect, color $main-effect;
+
+  &:hover,
+  &:focus {
+    transform: rotate(-360deg);
+    fill: $accent-color;
+  }
+
+  @include minMedia($tab) {
+    display: none;
+  }
+}
+
+.menu-toggle-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+.mob-menu {
+  margin-bottom: 302px;
+}
+
+.mob-menu__item {
+  display: block;
+  &:not(:last-child) {
+    margin-bottom: 32px;
+  }
+}
+
+.mob-menu__link {
+  @include textFont($ff: null, $fw: 500, $fs: 40px, $lh: 1.17, $ls: 0.02em);
+  color: $title-text-color;
+
+  &:hover,
+  &:focus,
+  &--current {
+    color: $accent-color;
+  }
+}
+
+.mob-menu-contacts {
+  margin-bottom: 64px;
+}
+
+.mob-menu-contacts__item {
+  display: block;
+  &:not(:last-child) {
+    margin-bottom: 32px;
+  }
+}
+
+.mob-menu-contacts__link--tel {
+  @include textFont($ff: null, $fw: 500, $fs: 34px, $lh: 1.17, $ls: 0.02em);
+  color: $accent-color;
+}
+
+.mob-menu-contacts__link--email {
+  @include textFont($ff: null, $fw: 500, $fs: 24px, $lh: 1.17, $ls: 0.02em);
+  color: inherit;
+}
+
+.mob-menu-socials {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mob-menu-socials__item {
+  &:not(:last-child) {
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid rgba(33, 33, 33, 0.2);
+  }
+}
+
+.mob-menu-socials__link {
+  @include textFont($ff: null, $fw: 500, $fs: 18px, $lh: 1.22, $ls: 0.02em);
+  color: $accent-color;
+}

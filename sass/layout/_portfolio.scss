@@ -26,7 +26,9 @@
 }
 
 .portfolio-list__link {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   transition: box-shadow $main-effect;
 
   &:hover,
@@ -42,6 +44,7 @@
 }
 
 .portfolio-list__card {
+  flex-grow: 1;
   padding: 20px 24px;
 
   border: $portfolio-card-border;
@@ -65,26 +68,32 @@
   top: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
 
   display: flex;
   align-items: center;
+
   padding: 0 24px;
-
-  font-size: 18px;
-  line-height: 1.56;
-
-  color: $primary-color;
   background-color: $overlay-bg-color;
 
   overflow: hidden;
+  overflow-y: auto;
   // если будет больше текста, ставим overflow:auto - появятся скроллы
 
   transform: translateY(101%);
 
-  transition: transform $main-effect;
+  transition: transform $main-effect, opacity $main-effect;
 
-  .portfolio-list__item:hover &,
-  .portfolio-list__item:focus & {
+  .portfolio-list__link:hover &,
+  .portfolio-list__link:focus & {
     transform: translateY(0);
+    opacity: 1;
   }
+}
+
+.portfolio-list__overlay-text {
+  font-size: 18px;
+  line-height: 1.56;
+
+  color: $primary-color;
 }

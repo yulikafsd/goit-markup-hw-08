@@ -110,11 +110,35 @@
   fill: currentColor;
   justify-content: center;
 
+  @include maxMedia($preDesk) {
+    &--env {
+      width: 14px;
+      height: 10px;
+    }
+
+    &--smart {
+      width: 10px;
+      height: 14px;
+    }
+  }
+
   @include minMedia($tab) {
     margin-right: 8px;
   }
 
   @include minMedia($desk) {
     margin-right: 10px;
+  }
+}
+
+.icon {
+  @include maxMedia($preDesk) {
+    display: none;
+  }
+}
+
+.icon-tab {
+  @include minMedia($desk) {
+    display: none;
   }
 }

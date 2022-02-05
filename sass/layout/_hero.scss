@@ -5,6 +5,15 @@
   min-width: 320px;
   margin: 0 auto;
 
+  @include heroBg($media: mob);
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @include heroBg($media: mob, $dpr: 2x);
+  }
+  @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+    @include heroBg($media: mob, $dpr: 3x);
+  }
+
   @include maxMedia($preMob) {
     max-width: 480px;
   }
@@ -15,18 +24,29 @@
 
   @include minMedia($tab) {
     width: 768px;
+    @include heroBg($media: tab);
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      @include heroBg($media: tab, $dpr: 2x);
+    }
+    @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+      @include heroBg($media: tab, $dpr: 3x);
+    }
   }
 
   @include minMedia($desk) {
     min-height: 600px;
     width: 100%;
     max-width: 1600px;
-  }
+    @include heroBg;
 
-  background: $hero-bg-gradient, url('../images/hero.jpg'), $hero-bg-color;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      @include heroBg($dpr: 2x);
+    }
+    @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+      @include heroBg($dpr: 3x);
+    }
+  }
 }
 
 .section-hero {

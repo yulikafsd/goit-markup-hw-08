@@ -4,7 +4,8 @@
   border-bottom: $header-border;
   &__container {
     @include minMedia($tab) {
-      @include centeredFlex($just: space);
+      display: flex;
+      align-items: center;
     }
   }
 }

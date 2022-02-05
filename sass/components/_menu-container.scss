@@ -12,8 +12,8 @@
   visibility: hidden;
   transform: translateX(-100%);
 
-  transition: transform ($main-effect), background-color ($main-effect), opacity ($main-effect),
-    visibility ($main-effect);
+  transition: transform $main-effect, background-color $main-effect, opacity $main-effect,
+    visibility $main-effect;
 
   @include maxMedia($preMob) {
     width: 100%;

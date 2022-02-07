@@ -16,8 +16,8 @@
     visibility $main-effect;
 
   @include maxMedia($preMob) {
-    width: 100%;
-    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
   }
 
   @include minMedia($tab) {
@@ -34,11 +34,11 @@
   & .container {
     position: relative;
     padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
-}
-
-.menu-toggle-wrap {
-  @include centeredFlex($just: space-between);
 }
 
 .menu-toggle-open,
@@ -69,8 +69,8 @@
   right: 15px;
 }
 
-.mob-menu {
-  margin-bottom: 302px;
+.mob-menu-top {
+  margin-bottom: 64px;
 }
 
 .mob-menu__item {

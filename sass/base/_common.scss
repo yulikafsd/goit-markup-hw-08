@@ -41,12 +41,13 @@ body {
 
 .section__title {
   margin-bottom: 30px;
+  @include textFont($ff: null, $fw: 700, $fs: 28px, $lh: 1.18, $ls: 0.03em);
+  text-align: center;
+  color: $title-text-color;
 
   @include minMedia($desk) {
+    font-size: 36px;
+    line-height: 1.17;
     margin-bottom: 50px;
   }
-
-  color: $title-text-color;
-  @include textFont($ff: null, $fw: 700, $fs: 36px, $lh: 1.17, $ls: null);
-  text-align: center;
 }

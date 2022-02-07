@@ -29,7 +29,7 @@
   width: 100%;
   padding: 27px 0;
 
-  @include textFont($ff: inherit, $fw: 700, $fs: null, $lh: 1.14, $ls: null);
+  @include textFont($ff: null, $fw: 700, $fs: 14px, $lh: 1.14, $ls: 0.03em);
 
   text-transform: uppercase;
   text-align: center;

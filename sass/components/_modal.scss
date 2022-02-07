@@ -6,10 +6,14 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  align-items: center;
   overflow-y: scroll;
 
-  @include maxMedia($preMob) {
-    padding: 93px 15px;
+  @include maxMedia($preTab) {
+    padding: 0 15px;
+    min-width: 100%;
+    min-height: 100%;
   }
 
   background-color: $backdrop-bg-color;
@@ -29,17 +33,18 @@
   width: 100%;
   padding: 40px;
   position: relative;
+  margin: 0 auto;
 
   @include maxMedia($preMob) {
     max-width: 450px;
   }
 
+  @include maxMedia($preDesk) {
+    top: 30px;
+  }
+
   @include minMedia($mob) {
     width: 450px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
   }
 
   @include minMedia($desk) {
@@ -63,13 +68,6 @@
     visibility: hidden;
     pointer-events: none;
     transform: scale(0.5);
-
-    @include minMedia($mob) {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.5);
-    }
   }
 }
 

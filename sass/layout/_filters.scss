@@ -5,21 +5,27 @@
   flex-wrap: wrap;
   margin-bottom: 40px;
 
+  @include maxMedia($preTab) {
+    margin-bottom: 40px - 15px;
+  }
+
   @include minMedia($tab) {
     margin-bottom: 30px;
+    justify-content: center;
   }
   @include minMedia($desk) {
     margin-bottom: 50px;
-    justify-content: center;
   }
 }
 
-.filter-list__item:not(:nth-last-child(-n + 2)) {
-  margin-bottom: 15px;
-}
+.filter-list__item {
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
 
-.filter-list__item:not(:last-child) {
-  margin-right: 8px;
+  @include maxMedia($preTab) {
+    margin-bottom: 15px;
+  }
 }
 
 .filter-list__button {
